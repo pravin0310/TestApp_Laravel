@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="content" style="align-items: center;">
     <h2>Import Users</h2>
     <form action="{{ route('admin.import') }}" method="POST" enctype="multipart/form-data">
         @csrf

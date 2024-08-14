@@ -3,10 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImportUserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\CustomLoginController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/custom-login', [CustomLoginController::class, 'showLoginForm'])->name('custom.login');
+Route::post('/custom-login', [CustomLoginController::class, 'login']);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
